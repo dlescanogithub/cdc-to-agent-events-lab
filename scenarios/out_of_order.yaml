@@ -1,0 +1,8 @@
+name: out_of_order
+builder: out_of_order
+seed: 7
+partitions: 1
+agent_budget: 10
+max_attempts: 5
+backoff_cap_ms: 200
+visibility_ms: 1000

@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cdc-lab"
+version = "0.1.0"
+description = "Synthetic lab: database change events to an idempotent agent trigger."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Diego Lescano" }]
+dependencies = []
+
+[project.optional-dependencies]
+kafka = ["confluent-kafka>=2.6"]
+dev = [
+  "mypy>=1.13",
+  "pre-commit>=4.0",
+  "pytest>=8.3",
+  "pytest-cov>=5.0",
+  "ruff>=0.8",
+]
+
+[project.scripts]
+cdc-lab = "cdc_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=cdc_lab --cov-report=term-missing --cov-fail-under=80"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+# SQL text in the store is wrapped for readability and still exceeds 88.
+"src/cdc_lab/store.py" = ["E501"]
+
+[tool.mypy]
+strict = true
+python_version = "3.11"
+mypy_path = "src"
+packages = ["cdc_lab"]
+
+[[tool.mypy.overrides]]
+module = "confluent_kafka"
+ignore_missing_imports = true
+
+[tool.coverage.run]
+source = ["cdc_lab"]
+branch = false
