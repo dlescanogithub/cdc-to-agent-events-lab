@@ -1,0 +1,41 @@
+# Optional local broker and database. CI does not start these services.
+# The password below is a local placeholder for a fictional database.
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: rutasur
+      POSTGRES_PASSWORD: local-only
+      POSTGRES_DB: rutasur
+    command:
+      - postgres
+      - -c
+      - wal_level=logical
+      - -c
+      - max_replication_slots=4
+      - -c
+      - max_wal_senders=4
+    ports:
+      - "5432:5432"
+
+  redpanda:
+    image: redpandadata/redpanda:v24.2.4
+    command:
+      - redpanda
+      - start
+      - --overprovisioned
+      - --smp
+      - "1"
+      - --memory
+      - 512M
+      - --reserve-memory
+      - 0M
+      - --node-id
+      - "0"
+      - --kafka-addr
+      - internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr
+      - internal://redpanda:9092,external://localhost:19092
+    ports:
+      - "19092:19092"

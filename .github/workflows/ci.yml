@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: install
+        run: python -m pip install -e ".[dev]"
+      - name: lint
+        run: |
+          python -m ruff check src tests
+          python -m ruff format --check src tests
+      - name: types
+        run: python -m mypy
+      - name: tests
+        run: python -m pytest
+      - name: eval
+        env:
+          CDC_LOG_LEVEL: WARNING
+        run: python -m cdc_lab eval
+      - name: forced-regression-must-fail
+        env:
+          CDC_LOG_LEVEL: WARNING
+        run: |
+          if python -m cdc_lab eval --regression; then
+            echo "regression gate must fail"
+            exit 1
+          fi
+      - name: secretscan
+        run: python -m cdc_lab.secretscan
