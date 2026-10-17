@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rutasur.example/schemas/change-event-v1.json",
+  "title": "Ruta Sur change event",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["event_id", "source", "op", "key", "before", "after", "schema_version"],
+  "properties": {
+    "event_id": { "type": "string", "minLength": 1 },
+    "op": { "enum": ["c", "u", "d", "r"] },
+    "key": { "type": "string", "minLength": 1 },
+    "schema_version": { "const": 1 },
+    "before": { "type": ["object", "null"] },
+    "after": { "type": ["object", "null"] },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["db", "schema", "table", "lsn", "txid", "ts_ms"],
+      "properties": {
+        "db": { "type": "string" },
+        "schema": { "type": "string" },
+        "table": { "enum": ["shipments", "customers"] },
+        "lsn": { "type": "integer", "minimum": 0 },
+        "txid": { "type": "integer", "minimum": 0 },
+        "ts_ms": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}
