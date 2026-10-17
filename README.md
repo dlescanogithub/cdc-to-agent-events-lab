@@ -10,7 +10,7 @@ Measured with real providers: none yet.
 
 A delayed premium shipment should become one draft, even if the change event is delivered twice, arrives out of order, or the process crashes before the offset commit. Poison records must sit on a DLQ instead of blocking other keys.
 
-On 2026-10-17, package 0.1.0, Python 3.12.3, `python3 -m cdc_lab eval` reported **0 violations across 10 scenarios** (measurement commit `PENDING_SHA`). Forced regression (`python3 -m cdc_lab eval --regression`) exits 1 because `evt-000001` is applied 5 times when idempotency is off.
+On 2026-10-17, package 0.1.0, Python 3.12.3, `python3 -m cdc_lab eval` reported **0 violations across 10 scenarios** (measurement commit `f458fa4`). Forced regression (`python3 -m cdc_lab eval --regression`) exits 1 because `evt-000001` is applied 5 times when idempotency is off.
 
 ## Demo
 
