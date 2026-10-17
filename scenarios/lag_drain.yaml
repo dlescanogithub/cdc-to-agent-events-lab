@@ -1,0 +1,13 @@
+name: lag_drain
+builder: lag_drain
+seed: 7
+events: 20
+partitions: 1
+service_ms: 100
+lag_threshold: 5
+lag_hold_ms: 300
+batch_size: 1
+max_attempts: 5
+backoff_cap_ms: 200
+visibility_ms: 100000
+agent_budget: 10

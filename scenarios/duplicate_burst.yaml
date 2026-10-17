@@ -1,0 +1,10 @@
+name: duplicate_burst
+builder: duplicate_burst
+seed: 7
+partitions: 2
+agent_budget: 10
+max_attempts: 5
+backoff_base_ms: 10
+backoff_cap_ms: 200
+visibility_ms: 1000
+batch_size: 4

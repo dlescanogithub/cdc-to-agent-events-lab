@@ -1,0 +1,12 @@
+name: crash_after_effect
+builder: crash_after_effect
+seed: 7
+partitions: 1
+crash_point: after_store_before_offset
+crash_times: 1
+max_attempts: 5
+backoff_cap_ms: 200
+visibility_ms: 1000
+agent_budget: 10
+batch_size: 1
+service_ms: 0

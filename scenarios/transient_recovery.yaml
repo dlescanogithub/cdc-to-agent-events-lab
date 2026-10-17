@@ -1,0 +1,10 @@
+name: transient_recovery
+builder: transient_recovery
+seed: 11
+partitions: 1
+max_attempts: 5
+backoff_base_ms: 10
+backoff_cap_ms: 200
+visibility_ms: 5000
+agent_budget: 10
+batch_size: 1
