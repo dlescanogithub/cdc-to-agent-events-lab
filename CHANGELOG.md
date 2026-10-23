@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add narrated English demo video (`cdc_to_agent_events_lab_demo_en.mp4`) with subtitles and evidence pack under `docs/demo/`.
+
 ## 0.1.1 - 2026-10-22
 
 - Point security reports at GitHub private vulnerability reporting ("Report a vulnerability" on the Security tab). Dropped the old advisory sentence.
