@@ -4,7 +4,7 @@ This repository is a synthetic lab. It ships no credentials, no customer data, a
 
 ## Reporting
 
-Open a private security advisory on this repository, or contact the owner listed in `.github/CODEOWNERS`. Do not file a public issue for a suspected credential leak.
+Report security issues through GitHub private vulnerability reporting: on the Security tab, choose "Report a vulnerability". You can also contact the owner listed in `.github/CODEOWNERS`. Do not file a public issue for a suspected credential leak.
 
 ## What is in scope
 

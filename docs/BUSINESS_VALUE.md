@@ -16,7 +16,7 @@
 
 ## 1. Buyer and problem
 
-**Buyer in the story.** Operations at the fictional shipper, who want a premium customer told when a shipment is delayed or when the promised date slips. **Reader of this plan.** A person judging the lab as a portfolio piece about change-data capture and an agent trigger. That split is the audience line in [docs/BUSINESS_CASE.md](BUSINESS_CASE.md).
+**Buyer in the story.** Operations at the fictional shipper, who want a premium customer told when a shipment is delayed or when the promised date slips. **Reader of this plan.** An engineer or a buyer reviewing change-data capture and an agent trigger. That split is the audience line in [docs/BUSINESS_CASE.md](BUSINESS_CASE.md).
 
 **Problem.** A delayed premium shipment should become one notice. The change event may be delivered twice, may arrive out of order, or the process may stop after the state write and before the offset commit. A poison record must not block other keys. A person approves the notice. The software does not send it.
 

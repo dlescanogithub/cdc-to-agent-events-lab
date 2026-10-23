@@ -1,0 +1,4 @@
+# docs/PROVENANCE.md line 5 is the sha256 of src/cdc_lab/secretscan.py.
+# gitleaks rule generic-api-key matches that digest. Global fingerprint
+# (file:rule-id:start-line) covers git history and a working-tree scan.
+docs/PROVENANCE.md:generic-api-key:5

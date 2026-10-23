@@ -206,7 +206,7 @@ Deployment conversation, in the order the docs already use: start from those que
 
 ## Business value
 
-The buyer in the story is the fictional shipper. The reader of the plan is someone judging this lab as a portfolio piece. The only priced outcome is the 48 USD **[EST]** above, against a software bill of 0 USD for the default path. A percentage return is not computed, because that bill is zero and [docs/COST.md](docs/COST.md) refuses to invent a cluster quote. Full plan, with the baseline and target table, the formula, the cost table, the measurement plan, and the risks: [docs/BUSINESS_VALUE.md](docs/BUSINESS_VALUE.md).
+The buyer in the story is the fictional shipper. The reader of the plan is an engineer or a buyer reviewing this lab. The only priced outcome is the 48 USD **[EST]** above, against a software bill of 0 USD for the default path. A percentage return is not computed, because that bill is zero and [docs/COST.md](docs/COST.md) refuses to invent a cluster quote. Full plan, with the baseline and target table, the formula, the cost table, the measurement plan, and the risks: [docs/BUSINESS_VALUE.md](docs/BUSINESS_VALUE.md).
 
 ## Proof
 
@@ -306,7 +306,7 @@ Scenario files override these for that run. The lab does not read a dotenv file.
 
 | Doc | What it is for |
 | --- | --- |
-| [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md) | Interview walkthrough, rioplatense Spanish |
+| [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md) | Walkthrough for engineers and buyers |
 | [docs/BUSINESS_VALUE.md](docs/BUSINESS_VALUE.md) | Value plan. Money figures are the repo's own [EST] or a measured zero |
 | [docs/BUSINESS_CASE.md](docs/BUSINESS_CASE.md) | The 48 USD [EST] story and what would have to be true |
 | [docs/DISCOVERY.md](docs/DISCOVERY.md) | Ten questions and what stays design-only until they are answered |
