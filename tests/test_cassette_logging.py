@@ -37,7 +37,7 @@ def test_cassette_miss_is_an_error_and_known_prompts_hit() -> None:
             temperature=0.0,
         )
     )
-    assert "No enviado" in response.text
+    assert "Not sent" in response.text
     assert response.tokens_in == 0
     body = fill_template(
         response.text,
@@ -103,7 +103,7 @@ def test_logs_and_traces_redact_secrets_and_direct_identifiers() -> None:
     writer.emit(
         "r1",
         "applied",
-        {"email": "cliente-c@rutasur.example", "event_id": "evt-1"},
+        {"email": "customer-c@rutasur.example", "event_id": "evt-1"},
     )
     line = json.loads(writer.lines[0])
     assert line["ts"] == 5

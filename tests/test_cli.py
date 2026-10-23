@@ -104,4 +104,4 @@ def test_eval_commands_and_module_entrypoint() -> None:
         text=True,
     )
     assert version.returncode == 0
-    assert "0.1.0" in version.stdout
+    assert "0.1.1" in version.stdout
