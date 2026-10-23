@@ -1,6 +1,6 @@
 # Business case
 
-Audience: engineers and buyers reviewing change-data capture and an agent trigger. The company in the story, Ruta Sur Logística, is fictional. Mailboxes use `@rutasur.example`.
+Audience: engineers and buyers reviewing change-data capture and an agent trigger. The company in the story, Ruta Sur Logistics, is fictional. Mailboxes use `@rutasur.example`.
 
 ## The job
 

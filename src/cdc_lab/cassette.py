@@ -85,13 +85,13 @@ def default_agent_cassette() -> CassetteProvider:
         (
             _scripted(
                 "premium_delayed",
-                "Borrador pendiente de aprobacion. Envio {{shipment_id}}, "
-                "estado {{status}}, regla {{rule}}. No enviado.",
+                "Draft pending approval. Shipment {{shipment_id}}, "
+                "status {{status}}, rule {{rule}}. Not sent.",
             ),
             _scripted(
                 "date_slip",
-                "Borrador pendiente de aprobacion. Envio {{shipment_id}} "
-                "atrasa {{days}} dias, regla {{rule}}. No enviado.",
+                "Draft pending approval. Shipment {{shipment_id}} "
+                "slips {{days}} days, rule {{rule}}. Not sent.",
             ),
         )
     )

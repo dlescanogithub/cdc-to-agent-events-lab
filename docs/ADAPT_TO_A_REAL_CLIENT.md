@@ -1,6 +1,6 @@
 # Adapt this lab to a real client
 
-The names in the tree (`rutasur`, `@rutasur.example`, Puerto Alerce, Valle Seco) are fictional. Replace them; do not point the generator at a real customer extract.
+The names in the tree (`rutasur`, `@rutasur.example`, North Wharf, Dry Valley, Demo Hill, Sample Bay) are fictional. Replace them; do not point the generator at a real customer extract.
 
 1. Keep the envelope fields, or version the schema and add a fix profile. Do not loosen version 1 in place.
 2. Swap `InMemoryBroker` for `KafkaBroker` only after you have measured that broker yourself. Delete any throughput number that came from `bench`.

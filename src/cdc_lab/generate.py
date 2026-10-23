@@ -10,8 +10,8 @@ from cdc_lab.events import ChangeEvent, EventSource, dumps_event
 from cdc_lab.topics import DB_NAME, SCHEMA_NAME
 
 _STATUSES = ("created", "in_transit", "delayed", "delivered")
-_LOCALES = ("es-AR", "es-UY")
-_ORIGINS = ("Puerto Alerce", "Valle Seco", "Cerro Demostracion", "Bahia Ficticia")
+_LOCALES = ("en-US", "en-GB")
+_ORIGINS = ("North Wharf", "Dry Valley", "Demo Hill", "Sample Bay")
 
 
 @dataclass(frozen=True)
@@ -237,8 +237,8 @@ def _customer_event(
         "id": customer.id,
         "tier": customer.tier,
         "locale": customer.locale,
-        "display_name": f"Cliente {customer.id}",
-        "email": f"cliente-{customer.id}@rutasur.example",
+        "display_name": f"Customer {customer.id}",
+        "email": f"customer-{customer.id}@rutasur.example",
     }
     return ChangeEvent(
         event_id=f"evt-{lsn:06d}",

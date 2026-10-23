@@ -1,6 +1,6 @@
 # How it is put together
 
-This is a walkthrough for engineers and buyers. The company, Ruta Sur Logística, is fictional. The "model" is a cassette. There is no real database behind it. The business figures in dollars are in the README, in English, and they are [EST] or zero. This page does not invent others.
+This is a walkthrough for engineers and buyers. The company, Ruta Sur Logistics, is fictional. The "model" is a cassette. There is no real database behind it. The business figures in dollars are in the README, and they are [EST] or zero. This page does not invent others.
 
 ## The analogy
 
@@ -20,7 +20,7 @@ The lab clock is a counter. It advances when the code says so. It is not wall-cl
 8. Only then does the stub agent look at the rules. A premium customer whose shipment becomes delayed, or a promised date that slips by **more** than N days (the default of `CDC_DATE_SLIP_DAYS` is 2; the comparison is strict, not "2 or more"). It leaves a draft `pending`. It sends nothing. `send` raises `NotApproved` if there is no approver name. With `CDC_AGENT_ENABLED=0` it keeps consuming, marks the outbox row as `suppressed`, and does not call the cassette.
 9. Several notices for the same shipment inside the coalesce window (default 5000 ms) are folded together. The window is per shipment key, not across the whole batch. The breaker opens after K consecutive failures, leaves the rows in the outbox, and can close after the cooldown.
 
-The two cassette sentences are in Spanish in `src/cdc_lab/cassette.py`. They say the notice is pending approval and that it was not sent. The token counts are 0 because the text is already in the repo. If the key is not in the cassette, that is an error. There is no network.
+The two cassette sentences are in `src/cdc_lab/cassette.py`. They say the notice is pending approval and that it was not sent. The token counts are 0 because the text is already in the repo. If the key is not in the cassette, that is an error. There is no network.
 
 ## Two different "mixed" runs
 
@@ -29,7 +29,7 @@ Both are named `mixed_faults` and both use seed 7 and 80 events. They are not th
 - The file `scenarios/mixed_faults.yaml` asks for 8 duplicates and 7 poison records. The README table (and `docs/METRICS.md`) is applied 32, stale 33, duplicates 8, DLQ 7. 32 + 33 + 8 + 7 = 80. The stale count of 33 is not the 4 swaps in the file: they are different counters.
 - `python -m cdc_lab demo` builds another mix in the CLI (3 duplicates, 1 malformed record, 1 schema violation). On 2026-10-22 it printed applied 59, stale 16, duplicates 3, DLQ 2, violations 0, `drafts_pending` 10, and `clock: simulated`. 59 + 16 + 3 + 2 = 80. Those 10 drafts are not the 4 in the business case.
 
-The business case uses `agent_breaker`: 4 drafts, all `pending`. That was run again on 2026-10-22 and again returned 4. The price of 48 USD is [EST] (4 × 12) and is explained in English in `docs/BUSINESS_VALUE.md`. It is not a measurement from a contact center.
+The business case uses `agent_breaker`: 4 drafts, all `pending`. That was run again on 2026-10-22 and again returned 4. The price of 48 USD is [EST] (4 × 12) and is explained in `docs/BUSINESS_VALUE.md`. It is not a measurement from a contact center.
 
 ## What was measured
 

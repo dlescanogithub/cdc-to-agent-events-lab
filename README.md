@@ -6,7 +6,7 @@ This lab proves a synthetic change stream can apply each event once, park poison
 Run `python3 -m cdc_lab eval` (install once with `python3 -m pip install -e ".[dev]"`).
 Walkthrough: [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md).
 
-Synthetic change stream for the fictional shipper Ruta Sur Logística (mailboxes on `@rutasur.example`): at-least-once delivery, an idempotent state write, and a stub agent that only prepares notices. A person approves a notice before `send` will accept it. This is not a live deployment, and it has not been pointed at a real database.
+Synthetic change stream for the fictional shipper Ruta Sur Logistics (mailboxes on `@rutasur.example`): at-least-once delivery, an idempotent state write, and a stub agent that only prepares notices. A person approves a notice before `send` will accept it. This is not a live deployment, and it has not been pointed at a real database.
 
 > **Honest limits.** CI exercises an in-memory broker and a simulated clock. The Docker and Kafka files are optional and are not started by CI. No Debezium connector, Postgres instance, or Kafka cluster was used for the numbers below. Cassette token counts are 0 because the text is local. **Measured with real providers: none yet.**
 
@@ -33,7 +33,7 @@ The default path has no network. Keys land on `sha256(key) % N` partitions (`src
 
 Effect and dedupe commit in one store transaction, keyed by consumer and `event_id`. The broker offset commits only after that transaction commits. A lower log sequence number (LSN) for a key is counted as stale and does not overwrite newer state. Permanent decode errors and permanent downstream errors go to the dead-letter queue with the original bytes, and that offset still commits so other keys move.
 
-The agent runs after the change has been applied. It is not inside the transaction that writes shipment state. Rules are local: a premium customer whose shipment becomes `delayed`, or a promised date that slips by more than `CDC_DATE_SLIP_DAYS` (default 2). The cassette has two templates. In English they say the notice is pending approval and has not been sent; the source sentences in `src/cdc_lab/cassette.py` are Spanish. Token counts on those responses are 0. `send` raises `NotApproved` until `approve` has recorded a non-empty approver name. `CDC_AGENT_ENABLED=0` keeps consuming and records the outbox row as suppressed. It does not call the cassette.
+The agent runs after the change has been applied. It is not inside the transaction that writes shipment state. Rules are local: a premium customer whose shipment becomes `delayed`, or a promised date that slips by more than `CDC_DATE_SLIP_DAYS` (default 2). The cassette has two templates in `src/cdc_lab/cassette.py`. They say the notice is pending approval and has not been sent. Token counts on those responses are 0. `send` raises `NotApproved` until `approve` has recorded a non-empty approver name. `CDC_AGENT_ENABLED=0` keeps consuming and records the outbox row as suppressed. It does not call the cassette.
 
 `KafkaBroker` implements the same produce, poll, commit, and end-offset surface and imports `confluent-kafka` only when it is constructed without injected clients. Exactly-once Kafka transactions are not implemented. Detail: [docs/architecture.md](docs/architecture.md), [docs/DELIVERY_SEMANTICS.md](docs/DELIVERY_SEMANTICS.md).
 
@@ -151,7 +151,7 @@ Lag seconds, retry sleeps, and the processing-latency histogram use the simulate
 
 ## Use cases, governance and business strategy
 
-Ruta Sur Logística is fictional. The rows are patterns, not an engagement.
+Ruta Sur Logistics is fictional. The rows are patterns, not an engagement.
 
 ### Client-style
 
@@ -321,7 +321,7 @@ Scenario files override these for that run. The lab does not read a dotenv file.
 | [docs/PROVENANCE.md](docs/PROVENANCE.md) | Shared secret-scanner lineage. The digest lives there, not here |
 | [docs/adr/](docs/adr/) | Decisions |
 | [SECURITY.md](SECURITY.md) | Reporting and scope |
-| [CHANGELOG.md](CHANGELOG.md) | Package 0.1.0 and the documentation note |
+| [CHANGELOG.md](CHANGELOG.md) | Package 0.1.1 and the earlier documentation note |
 
 ## Authorship and how this was built
 

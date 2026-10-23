@@ -38,8 +38,8 @@ def _row(sid: str, customer_id: str, status: str, promised: str) -> dict[str, ob
         "customer_id": customer_id,
         "status": status,
         "promised_date": promised,
-        "origin": "Puerto Alerce",
-        "destination": "Valle Seco",
+        "origin": "North Wharf",
+        "destination": "Dry Valley",
     }
 
 
@@ -81,9 +81,9 @@ def _customer(lsn: int, customer_id: str, tier: str) -> ChangeEvent:
         after={
             "id": customer_id,
             "tier": tier,
-            "locale": "es-AR",
-            "display_name": f"Cliente {customer_id}",
-            "email": f"cliente-{customer_id}@rutasur.example",
+            "locale": "en-US",
+            "display_name": f"Customer {customer_id}",
+            "email": f"customer-{customer_id}@rutasur.example",
         },
         schema_version=1,
     )
