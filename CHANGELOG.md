@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Point security reports at GitHub private vulnerability reporting ("Report a vulnerability" on the Security tab). Dropped the old advisory sentence.
+- Translated `docs/HOW_IT_WORKS.md` into English. Interview-prep framing now reads as a walkthrough for engineers and buyers, including the audience lines in the README, `docs/BUSINESS_CASE.md`, and `docs/BUSINESS_VALUE.md`.
+- Ignore the `secretscan.py` sha256 line in `docs/PROVENANCE.md` with one `.gitleaksignore` fingerprint. Gitleaks reports that hex as `generic-api-key`.
+
 ## 2026-10-22
 
 Documentation only. The package version stays 0.1.0.
