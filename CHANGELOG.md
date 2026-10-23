@@ -9,6 +9,7 @@
 - Added `docs/BUSINESS_VALUE.md`. Money figures are the existing 48 USD estimate and the measured zero software bill. No new prices.
 - Updated `docs/HOW_IT_WORKS.md` and `docs/METRICS.md` with the 2026-10-22 pytest run, and with the distinction between `cdc_lab demo` and `scenarios/mixed_faults.yaml`.
 - Translated the cassette templates, synthetic customer labels, locales, and place names into English. Package version is 0.1.1.
+- Renamed the fictional shipper to Ruta Sur Logistics. Tracked files have no accented characters.
 
 ## 0.1.0 — 2026-10-17
 

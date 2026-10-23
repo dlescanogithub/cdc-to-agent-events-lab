@@ -1,4 +1,4 @@
-"""Debezium-like change events for the fictional shipper Ruta Sur Logística."""
+"""Debezium-like change events for the fictional shipper Ruta Sur Logistics."""
 
 from __future__ import annotations
 

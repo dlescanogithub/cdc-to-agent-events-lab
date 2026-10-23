@@ -1,6 +1,6 @@
 # How it is put together
 
-This is a walkthrough for engineers and buyers. The company, Ruta Sur Logística, is fictional. The "model" is a cassette. There is no real database behind it. The business figures in dollars are in the README, and they are [EST] or zero. This page does not invent others.
+This is a walkthrough for engineers and buyers. The company, Ruta Sur Logistics, is fictional. The "model" is a cassette. There is no real database behind it. The business figures in dollars are in the README, and they are [EST] or zero. This page does not invent others.
 
 ## The analogy
 

@@ -2,7 +2,7 @@
 
 > **Important notice**
 >
-> - **Fictional shipper.** Ruta Sur Logística is a company **invented** for this lab. Mailboxes use `@rutasur.example`. It does not represent any real client or employer.
+> - **Fictional shipper.** Ruta Sur Logistics is a company **invented** for this lab. Mailboxes use `@rutasur.example`. It does not represent any real client or employer.
 > - **Inspired by the AWS Business Value Realization (BVR) framework:** a buyer, a problem, levers, KPIs with a baseline and a target, a cost view, and a measurement plan. **It is not an official AWS template**, and **I do not hold the AWS BVR Competency**, which is awarded to AWS partner companies, not to individuals.
 > - Labels used below, and only these:
 >   - **MEASURED**: a command in this repo was run, and the number is what it printed.

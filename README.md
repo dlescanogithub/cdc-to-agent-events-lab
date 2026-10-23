@@ -6,7 +6,7 @@ This lab proves a synthetic change stream can apply each event once, park poison
 Run `python3 -m cdc_lab eval` (install once with `python3 -m pip install -e ".[dev]"`).
 Walkthrough: [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md).
 
-Synthetic change stream for the fictional shipper Ruta Sur Logística (mailboxes on `@rutasur.example`): at-least-once delivery, an idempotent state write, and a stub agent that only prepares notices. A person approves a notice before `send` will accept it. This is not a live deployment, and it has not been pointed at a real database.
+Synthetic change stream for the fictional shipper Ruta Sur Logistics (mailboxes on `@rutasur.example`): at-least-once delivery, an idempotent state write, and a stub agent that only prepares notices. A person approves a notice before `send` will accept it. This is not a live deployment, and it has not been pointed at a real database.
 
 > **Honest limits.** CI exercises an in-memory broker and a simulated clock. The Docker and Kafka files are optional and are not started by CI. No Debezium connector, Postgres instance, or Kafka cluster was used for the numbers below. Cassette token counts are 0 because the text is local. **Measured with real providers: none yet.**
 
@@ -151,7 +151,7 @@ Lag seconds, retry sleeps, and the processing-latency histogram use the simulate
 
 ## Use cases, governance and business strategy
 
-Ruta Sur Logística is fictional. The rows are patterns, not an engagement.
+Ruta Sur Logistics is fictional. The rows are patterns, not an engagement.
 
 ### Client-style
 
