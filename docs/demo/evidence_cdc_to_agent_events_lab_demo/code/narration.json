@@ -1,0 +1,22 @@
+[
+ {
+  "id": "A_hook",
+  "text": "A synthetic change stream for Ruta Sur Logistics, a fictional shipper. At-least-once delivery, idempotent state, and a stub agent that only prepares notices. Offline."
+ },
+ {
+  "id": "B_demo",
+  "text": "Mixed faults, seed seven: eighty produced, fifty-nine applied, sixteen stale, three duplicates skipped, two on the dead-letter queue. Violations zero. Ten notices still pending human approval. Clock: simulated."
+ },
+ {
+  "id": "C_eval",
+  "text": "Gate on ten scenarios: no-loss, exactly-once effect, order, poison isolation, and the rest. Violations: zero."
+ },
+ {
+  "id": "D_regress",
+  "text": "Disable idempotency on a duplicate burst: event evt-000001 applied five times. Violations one. Exit one. That is the expected red."
+ },
+ {
+  "id": "E_close",
+  "text": "A delayed premium shipment should become one notice, even when the event arrives twice. Not covered: Debezium, Postgres, Kafka in C-I, or a real send. Notices stay pending until a named person approves. Run python -m cdc_lab demo. Lab path cost: zero."
+ }
+]

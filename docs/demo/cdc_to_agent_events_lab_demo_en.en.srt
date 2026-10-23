@@ -1,0 +1,42 @@
+1
+00:00:00,900 --> 00:00:05,280
+A synthetic change stream for Ruta Sur Logistics, a fictional shipper.
+
+2
+00:00:05,390 --> 00:00:12,300
+At-least-once delivery, idempotent state, and a stub agent that only prepares
+notices. Offline.
+
+3
+00:00:13,570 --> 00:00:22,190
+Mixed faults, seed seven: eighty produced, fifty-nine applied, sixteen stale,
+three duplicates skipped, two on the dead-letter queue.
+
+4
+00:00:22,240 --> 00:00:27,910
+Violations zero. Ten notices still pending human approval. Clock: simulated.
+
+5
+00:00:29,200 --> 00:00:37,590
+Gate on ten scenarios: no-loss, exactly-once effect, order, poison isolation,
+and the rest. Violations: zero.
+
+6
+00:00:38,900 --> 00:00:52,310
+Disable idempotency on a duplicate burst: event evt-000001 applied five times.
+Violations one. Exit one. That is the expected red.
+
+7
+00:00:53,480 --> 00:00:58,890
+A delayed premium shipment should become one notice, even when the event
+arrives twice.
+
+8
+00:00:58,920 --> 00:01:08,170
+Not covered: Debezium, Postgres, Kafka in C-I, or a real send. Notices stay
+pending until a named person approves.
+
+9
+00:01:08,250 --> 00:01:14,610
+Run python -m cdc_lab demo. Lab path cost: zero.
+

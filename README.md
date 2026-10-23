@@ -54,6 +54,8 @@ python3 -m cdc_lab eval --regression
 
 ## Demo
 
+- **Demo video (English, offline):** [docs/demo/README.md](docs/demo/README.md) — [`cdc_to_agent_events_lab_demo_en.mp4`](docs/demo/cdc_to_agent_events_lab_demo_en.mp4)
+
 `python3 -m cdc_lab demo` builds an 80-event mix with seed 7 through the helper in `src/cdc_lab/cli.py` (`_mixed`), prints the accounting identity, prints `clock: simulated`, and prints how many notices are still pending. Logs are JSON on stderr.
 
 That helper is not `scenarios/mixed_faults.yaml`. Both are named `mixed_faults` and both use seed 7 and 80 events. The knobs differ (the helper asks for 3 duplicates and 1 malformed record plus 1 schema violation; the YAML file asks for 8 duplicates and 7 poison records). On 2026-10-22, package 0.1.0, Python 3.12.3, `CDC_LOG_LEVEL=WARNING python3 -m cdc_lab demo` printed:

@@ -1,0 +1,55 @@
+cdc $ CDC_LOG_LEVEL=WARNING python -m cdc_lab demo
+{"error_code": "malformed", "level": "WARNING", "msg": "dead letter", "record_id": "rutasur.cdc.events:3:3", "run_id": "mixed_faults-7", "ts": "2026-10-23T01:24:22.058+00:00"}
+{"error_code": "schema", "level": "WARNING", "msg": "dead letter", "record_id": "rutasur.cdc.events:3:18", "run_id": "mixed_faults-7", "ts": "2026-10-23T01:24:22.092+00:00"}
+scenario: mixed_faults
+produced: 80
+applied: 59
+skipped_stale: 16
+duplicates_skipped: 3
+dlq: 2
+violations: 0
+latency_clock: simulated
+clock: simulated
+drafts_pending: 10
+cdc $ clear
+[H[2J[3Jcdc $ CDC_LOG_LEVEL=WARNING python -m cdc_lab demo 2>/dev/null
+scenario: mixed_faults
+produced: 80
+applied: 59
+skipped_stale: 16
+duplicates_skipped: 3
+dlq: 2
+violations: 0
+latency_clock: simulated
+clock: simulated
+drafts_pending: 10
+cdc $ clear
+[H[2J[3Jcdc $ CDC_LOG_LEVEL=WARNING python -m cdc_lab eval 2>/dev/null
+mode: gate
+scenarios: 10
+no_loss: pass=10 fail=0 non_vacuous=10
+exactly_once_effect: pass=10 fail=0 non_vacuous=10
+per_key_order: pass=10 fail=0 non_vacuous=10
+retries_bounded: pass=10 fail=0 non_vacuous=1
+poison_isolation: pass=10 fail=0 non_vacuous=4
+lag_drains: pass=10 fail=0 non_vacuous=10
+agent_budget: pass=10 fail=0 non_vacuous=10
+dlq_replay: pass=10 fail=0 non_vacuous=2
+violations: 0
+cdc $ clear
+[H[2J[3Jcdc $ CDC_LOG_LEVEL=WARNING python -m cdc_lab eval --regression 2>/dev/null; echo exit=$?
+mode: regression
+scenarios: 1
+no_loss: pass=1 fail=0 non_vacuous=1
+exactly_once_effect: pass=0 fail=1 non_vacuous=1
+per_key_order: pass=1 fail=0 non_vacuous=1
+retries_bounded: pass=1 fail=0 non_vacuous=0
+poison_isolation: pass=1 fail=0 non_vacuous=0
+lag_drains: pass=1 fail=0 non_vacuous=1
+agent_budget: pass=1 fail=0 non_vacuous=1
+dlq_replay: pass=1 fail=0 non_vacuous=0
+violations: 1
+violation: exactly_once_effect: effect applied more than once: {'evt-000001': 5}
+component: consumer idempotency disabled on duplicate_burst
+exit=1
+cdc $ 
